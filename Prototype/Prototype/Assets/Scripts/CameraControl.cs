@@ -15,4 +15,11 @@ public class CameraControl : MonoBehaviour
     {
         
     }
+
+    private void FixedUpdate()
+    {
+        Quaternion rotation = Quaternion.Euler(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
+        Vector3 r = new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
+        transform.Rotate(r);
+    }
 }

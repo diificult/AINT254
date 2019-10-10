@@ -24,8 +24,13 @@ public class PlayerMovement : MonoBehaviour
         
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
         Quaternion rotation = Quaternion.Euler(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
-        transform.position += movement
-            ;
+        transform.position += movement;
         
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
+        rigidbody.AddForce(movement);
     }
 }
