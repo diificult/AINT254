@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
+
+    public int sensitivity;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -18,8 +21,12 @@ public class CameraControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Quaternion rotation = Quaternion.Euler(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
-        Vector3 r = new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
-        transform.Rotate(r);
+       // Quaternion rotation = Quaternion.Euler(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
+        Vector3 r = new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * sensitivity;
+
+        float y = -Input.GetAxis("Mouse Y") * sensitivity;
+        float x = Input.GetAxis("Mouse X") * sensitivity;
+
+        transform.localEulerAngles += new Vector3(y, x, 0);
     }
 }
