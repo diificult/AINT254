@@ -63,9 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\GunMovement.cs" />
+    <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/OwenWork/Documents/GitHub/AINT254/Prototype/Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
