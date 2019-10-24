@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerTwoMovement : MonoBehaviour
 {
-
-
+    // Start is called before the first frame update
     Rigidbody rigidbody;
     public float speed;
     public float rotationSpeed;
@@ -22,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
+        Vector3 movement = new Vector3(Input.GetAxis("CHorizontal"), 0, Input.GetAxis("CVertical")) * speed;
         movement = c.transform.TransformDirection(movement);
         movement.y = 0;
         rigidbody.AddForce(movement);
