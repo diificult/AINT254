@@ -25,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
         movement = c.transform.TransformDirection(movement);
         movement.y = 0;
-        rigidbody.AddForce(movement);
+ //       rigidbody.AddForce(movement);
+        rigidbody.velocity = movement;
     }
 
 }

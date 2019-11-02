@@ -68,6 +68,9 @@
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\PlayerTwoCameraControl.cs" />
+    <Compile Include="Assets\Scripts\PlayerTwoGun.cs" />
+    <Compile Include="Assets\Scripts\PlayerTwoMovement.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/OwenWork/Documents/GitHub/AINT254/Prototype/Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
