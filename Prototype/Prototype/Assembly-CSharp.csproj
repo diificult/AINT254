@@ -66,11 +66,13 @@
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\GameUI.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerTwoCameraControl.cs" />
     <Compile Include="Assets\Scripts\PlayerTwoGun.cs" />
     <Compile Include="Assets\Scripts\PlayerTwoMovement.cs" />
+    <Compile Include="Assets\Scripts\RespawnSystem.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/OwenWork/Documents/GitHub/AINT254/Prototype/Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
