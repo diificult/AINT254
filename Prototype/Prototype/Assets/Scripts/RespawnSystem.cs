@@ -15,9 +15,11 @@ public class RespawnSystem : MonoBehaviour
     public void Hit()
     {
         Debug.Log("Hit");
-        GetComponent<Renderer>().enabled = false;
         onDamaged.Invoke();
+        GetComponent<Renderer>().enabled = false;
         Invoke("CountdownNext", 1);
+        
+        
     }
 
     private void CountdownNext()
@@ -25,12 +27,14 @@ public class RespawnSystem : MonoBehaviour
         countdown--;
         if (countdown == 0)
         {
-      //      GameObject RespawnLocation = new GameObject();
-    //        RespawnLocation = spawnLocations[Random.Range(0, spawnLocations.GetRange)];
-   //         transform.position = ;
-   //         GetComponent<Renderer>().enabled = true;
+            GameObject RespawnLocation = new GameObject();
+            RespawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
+           transform.position = RespawnLocation.transform.position;
+            GetComponent<Renderer>().enabled = true;
         } else
         {
+
+            Debug.Log(countdown);
             Invoke("CountdownNext", 1);
         }
     }
