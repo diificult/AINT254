@@ -15,4 +15,11 @@ public class PlayerInput : MonoBehaviour
     {
         
     }
+
+
+    //https://www.youtube.com/watch?v=WIZz2oiZyqU
+    void SetControllerNumber(int  number)
+    {
+
+    }
 }
