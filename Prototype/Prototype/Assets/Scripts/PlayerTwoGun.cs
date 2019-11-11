@@ -15,7 +15,7 @@ public class PlayerTwoGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("In: " + Input.GetKeyDown("10th Axis"));
+
         if (Input.GetAxis("Fire1")>0)
         {
             if (!isFiring)

@@ -45,5 +45,4 @@ public class Gun : MonoBehaviour
         isFiring = false;
     }
 
-
 }

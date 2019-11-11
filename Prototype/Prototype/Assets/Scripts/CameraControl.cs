@@ -27,7 +27,6 @@ public class CameraControl : MonoBehaviour
         float y = -Input.GetAxis("Mouse Y") * sensitivity;
         float x = Input.GetAxis("Mouse X") * sensitivity;
         y = Mathf.Clamp(y, -45.0f, 45.0f);
-    //   Debug.Log(transform.localEulerAngles.x);
 
         transform.localEulerAngles += new Vector3(y, x, 0);
         if (transform.localEulerAngles.x > 45 && transform.localEulerAngles.x < 90) transform.localEulerAngles = new Vector3(45f, transform.localEulerAngles.y, 0);
