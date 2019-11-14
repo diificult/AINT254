@@ -73,7 +73,10 @@ public class ControllerManager : MonoBehaviour
         if (player1 > 0 && player2 > 0)
         {
             pressStart.enabled = true;
-           // if ()
+            if (Input.GetButtonDown("Start"))
+            {
+
+            }
         }
 
     }
