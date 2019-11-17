@@ -10,8 +10,9 @@ public class PlayerInput : MonoBehaviour
     private string lookXAxis;
     private string lookYAxis;
     private string fire;
+    public Camera c;
 
-    private Rigidbody rigidbody;
+    Rigidbody rigidbody;
 
     public float speed;
     public float sensitivity;
@@ -25,10 +26,15 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rigidbody = GetComponent<Rigidbody>();
         Vector3 movement = new Vector3(Input.GetAxis(moveXAxis), 0, Input.GetAxis(moveYAxis)) * speed;
+        movement.y = 0;
+        movement = c.transform.TransformDirection(movement);
+        
         rigidbody.velocity = movement;
-        Vector3 r = new Vector3(-Input.GetAxis(lookYAxis), Input.GetAxis(lookXAxis), 0) * sensitivity;
+        
 
+        Vector3 r = new Vector3(-Input.GetAxis(lookYAxis), Input.GetAxis(lookXAxis), 0) * sensitivity;
         float y = -Input.GetAxis(lookYAxis)* sensitivity;
         float x = Input.GetAxis(lookXAxis) * sensitivity;
         y = Mathf.Clamp(y, -45.0f, 45.0f);
@@ -41,12 +47,12 @@ public class PlayerInput : MonoBehaviour
 
 
     //https://www.youtube.com/watch?v=WIZz2oiZyqU
-    void SetControllerNumber(int  number)
+    void SetControllerNumber(string number)
     {
-        moveXAxis = "J" + number + "Horizontal";
-        moveYAxis = "J" + number + "Vertical";
-        lookXAxis = "J" + number + "StickHorizontal";
-        lookYAxis = "J" + number + "StickVertical";
-        fire = "J" + number + "fire";
+        moveXAxis = number + "Horizontal";
+        moveYAxis = number + "Vertical";
+        lookXAxis = number + "StickHorizontal";
+        lookYAxis = number + "StickVertical";
+        fire = number + "fire";
     }
 }
