@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour
     public Camera c;
 
     Rigidbody rigidbody;
+    public Gun gun;
 
     public float speed;
     public float sensitivity;
@@ -28,9 +29,8 @@ public class PlayerInput : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         Vector3 movement = new Vector3(Input.GetAxis(moveXAxis), 0, Input.GetAxis(moveYAxis)) * speed;
-        movement.y = 0;
         movement = c.transform.TransformDirection(movement);
-        
+        movement.y = 0;
         rigidbody.velocity = movement;
         
 
@@ -42,17 +42,23 @@ public class PlayerInput : MonoBehaviour
         transform.localEulerAngles += new Vector3(y, x, 0);
         if (transform.localEulerAngles.x > 45 && transform.localEulerAngles.x < 90) transform.localEulerAngles = new Vector3(45f, transform.localEulerAngles.y, 0);
         if (transform.localEulerAngles.x < 315 && transform.localEulerAngles.x > 90) transform.localEulerAngles = new Vector3(315, transform.localEulerAngles.y, 0);
-
+        Debug.Log(Input.GetAxis(fire));
+        if  (Input.GetAxis(fire) > 0)
+        {
+            
+            gun.Fire();
+        }
     }
 
 
     //https://www.youtube.com/watch?v=WIZz2oiZyqU
     void SetControllerNumber(string number)
     {
+        Debug.Log(number);
         moveXAxis = number + "Horizontal";
         moveYAxis = number + "Vertical";
         lookXAxis = number + "StickHorizontal";
         lookYAxis = number + "StickVertical";
-        fire = number + "fire";
+        fire = number + "Fire";
     }
 }

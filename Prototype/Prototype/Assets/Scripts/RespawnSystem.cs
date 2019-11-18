@@ -20,7 +20,7 @@ public class RespawnSystem : MonoBehaviour
         Debug.Log("Hit");
         onDamaged.Invoke();
         GetComponent<Renderer>().enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<PlayerMovement>().enabled = false;
         countdownText.enabled = false;
         theGun.SetActive(false);
@@ -39,7 +39,7 @@ public class RespawnSystem : MonoBehaviour
             RespawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
            transform.position = RespawnLocation.transform.position;
             GetComponent<Renderer>().enabled = true;
-            GetComponent<BoxCollider>().enabled = true;
+            GetComponent<CapsuleCollider>().enabled = true;
             GetComponent<PlayerMovement>().enabled = true;
             countdownText.enabled = true;
             theGun.SetActive(true);

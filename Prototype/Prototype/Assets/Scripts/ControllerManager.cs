@@ -53,55 +53,6 @@ public class ControllerManager : MonoBehaviour
                 player2Animation.SetTrigger("ButtonPressed");
             }
         }
-
-
-        ////if (Input.GetButtonDown("J1A"))
-        ////{
-        ////    Debug.Log("j2a, player1 = " + player1 + ", player2 = " + player2);
-        ////    if (player1 == 0 && player2 != 1)
-        ////    {
-        ////        player1 = 1;
-        ////        player1Image.color = Color.green;
-        ////    }
-        ////    else if (player1 == 1)
-        ////    {
-        ////        player1Animation.SetTrigger("ButtonPressed");
-        ////    }
-        ////    else if (player2 == 0 && player1 != 1)
-        ////    {
-        ////        player2 = 1;
-        ////        player2Image.color = Color.green;
-        ////    }
-        ////    else if (player2 == 1)
-        ////    {
-        ////        player2Animation.SetTrigger("ButtonPressed");
-        ////    }
-        ////}
-        ////if (Input.GetButtonDown("J2A"))
-        ////{
-
-        ////    Debug.Log("j2a, player1 = " + player1 + ", player2 = " + player2);
-        ////    if (player1 == 0 && player2 != 2)
-        ////    {
-        ////        player1 = 2;
-        ////        player1Image.color = Color.green;
-        ////    }
-        ////    else if (player1 == 2)
-        ////    {
-        ////        player1Animation.SetTrigger("ButtonPressed");
-        ////    }
-        ////    else if (player2 == 0 && player1 != 2)
-        ////    {
-        ////        player2 = 2;
-        ////        player2Image.color = Color.green;
-        ////    }
-        ////    else if (player2 == 2)
-        ////    {
-        ////        player2Animation.SetTrigger("ButtonPressed");
-        ////    }
-        ////}
-        ////if (Input.GetButtonDown("J3A")) Debug.Log("j3");
-        ////if (Input.GetButtonDown("J4A")) Debug.Log("j4");
         if (player1 != null && player2 != null)
         {
             pressStart.enabled = true;
@@ -111,6 +62,7 @@ public class ControllerManager : MonoBehaviour
                 player1Object.transform.SendMessage("SetControllerNumber", player1, SendMessageOptions.DontRequireReceiver);
                 player2Object.GetComponent<PlayerInput>().enabled = true;
                 player2Object.transform.SendMessage("SetControllerNumber", player2, SendMessageOptions.DontRequireReceiver);
+                controllerInfo.enabled = false;
             }
         }
 

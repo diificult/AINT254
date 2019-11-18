@@ -14,25 +14,18 @@ public class Gun : MonoBehaviour
 
     
     // Update is called once per frame
-    void Update()
+
+
+    public void Fire()
     {
-        if (Input.GetMouseButton(0))
+        if (!isFiring)
         {
-            if (!isFiring)
-            {
-                Fire();
-            }
+            isFiring = true;
+            Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            Invoke("SetFiring", fireRate);
+            light.enabled = true;
+            Invoke("GunLight", lightLength);
         }
-
-    }
-
-    private void Fire()
-    {
-        isFiring = true;
-        Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        Invoke("SetFiring", fireRate);
-        light.enabled = true;
-        Invoke("GunLight", lightLength);
     }
 
 
