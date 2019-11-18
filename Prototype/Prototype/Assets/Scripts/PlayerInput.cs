@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     private string lookXAxis;
     private string lookYAxis;
     private string fire;
+    private string reload;
     public Camera c;
 
     Rigidbody rigidbody;
@@ -40,25 +41,25 @@ public class PlayerInput : MonoBehaviour
         y = Mathf.Clamp(y, -45.0f, 45.0f);
 
         transform.localEulerAngles += new Vector3(y, x, 0);
-        if (transform.localEulerAngles.x > 45 && transform.localEulerAngles.x < 90) transform.localEulerAngles = new Vector3(45f, transform.localEulerAngles.y, 0);
-        if (transform.localEulerAngles.x < 315 && transform.localEulerAngles.x > 90) transform.localEulerAngles = new Vector3(315, transform.localEulerAngles.y, 0);
-        Debug.Log(Input.GetAxis(fire));
+        if (transform.localEulerAngles.x > 35 && transform.localEulerAngles.x < 90) transform.localEulerAngles = new Vector3(35f, transform.localEulerAngles.y, 0);
+        if (transform.localEulerAngles.x < 325 && transform.localEulerAngles.x > 90) transform.localEulerAngles = new Vector3(325, transform.localEulerAngles.y, 0);
+
         if  (Input.GetAxis(fire) > 0)
         {
-            
             gun.Fire();
         }
+        if (Input.GetButtonDown(reload)) gun.Reload();
     }
 
 
     //https://www.youtube.com/watch?v=WIZz2oiZyqU
     void SetControllerNumber(string number)
     {
-        Debug.Log(number);
         moveXAxis = number + "Horizontal";
         moveYAxis = number + "Vertical";
         lookXAxis = number + "StickHorizontal";
         lookYAxis = number + "StickVertical";
         fire = number + "Fire";
+        reload = number + "Reload";
     }
 }
