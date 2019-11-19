@@ -18,12 +18,12 @@ public class RespawnSystem : MonoBehaviour
     public UnityEvent onDamaged;
     public void Hit()
     {
-        Debug.Log("Hit");
+        Debug.Log("Hit: " + transform.name);
         onDamaged.Invoke();
         GetComponent<Renderer>().enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<PlayerInput>().enabled = false;
-        countdownText.enabled = true;
+        countdownText.GetComponent<Animator>().SetTrigger("Countdown");
         theGun.SetActive(false);
         countdownText.text = "Respawn in: " + countdown;
         Invoke("CountdownNext", 1);
@@ -42,7 +42,7 @@ public class RespawnSystem : MonoBehaviour
             GetComponent<Renderer>().enabled = true;
             GetComponent<CapsuleCollider>().enabled = true;
             GetComponent<PlayerInput>().enabled = true;
-            countdownText.enabled = false;
+            countdownText.GetComponent<Animator>().SetTrigger("GoOut");
             theGun.SetActive(true);
             countdown = 5;
         } else

@@ -56,7 +56,7 @@ public class ControllerManager : MonoBehaviour
         }
         if (player1 != null && player2 != null)
         {
-            pressStart.enabled = true;
+            pressStart.text = "▶ Press Start ◀";
             if (Input.GetButtonDown("Start"))
             {
                 player1Object.GetComponent<PlayerInput>().enabled = true;
