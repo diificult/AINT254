@@ -13,6 +13,7 @@ public class ControllerManager : MonoBehaviour
     public GameObject player1Object;
     public GameObject player2Object;
     public Canvas controllerInfo;
+    public GameObject[] guns = new GameObject[2];
 
     public Text pressStart;
 
@@ -62,6 +63,10 @@ public class ControllerManager : MonoBehaviour
                 player1Object.transform.SendMessage("SetControllerNumber", player1, SendMessageOptions.DontRequireReceiver);
                 player2Object.GetComponent<PlayerInput>().enabled = true;
                 player2Object.transform.SendMessage("SetControllerNumber", player2, SendMessageOptions.DontRequireReceiver);
+                guns[0].GetComponent<Gun>().enabled = true;
+                player1Object.GetComponent<RespawnSystem>().Spawn();
+                player2Object.GetComponent<RespawnSystem>().Spawn();
+                guns[1].GetComponent<Gun>().enabled = true;
                 controllerInfo.enabled = false;
             }
         }

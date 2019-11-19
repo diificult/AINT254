@@ -18,13 +18,18 @@ public class GameUI : MonoBehaviour
     {
         p1Score++;
         p1ScoreText.text = "" + p1Score;
-        
+        if  (p1Score == 7)
+        {
+
+        }
     }
     public void Updatep2Score()
     {
         p2Score++;
         p2ScoreText.text = "" + p2Score;
-
+        if (p2Score == 7)
+        {
+        }
     }
 
 }

@@ -22,8 +22,8 @@ public class RespawnSystem : MonoBehaviour
         onDamaged.Invoke();
         GetComponent<Renderer>().enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
-        GetComponent<PlayerMovement>().enabled = false;
-        countdownText.enabled = false;
+        GetComponent<PlayerInput>().enabled = false;
+        countdownText.enabled = true;
         theGun.SetActive(false);
         countdownText.text = "Respawn in: " + countdown;
         Invoke("CountdownNext", 1);
@@ -41,8 +41,8 @@ public class RespawnSystem : MonoBehaviour
            transform.position = RespawnLocation.transform.position;
             GetComponent<Renderer>().enabled = true;
             GetComponent<CapsuleCollider>().enabled = true;
-            GetComponent<PlayerMovement>().enabled = true;
-            countdownText.enabled = true;
+            GetComponent<PlayerInput>().enabled = true;
+            countdownText.enabled = false;
             theGun.SetActive(true);
             countdown = 5;
         } else
@@ -52,9 +52,11 @@ public class RespawnSystem : MonoBehaviour
         }
     }
 
-    IEnumerator GunCountdown()
+    public void Spawn()
     {
-        yield return new WaitForSeconds(1f);
+        GameObject RespawnLocation = new GameObject();
+        RespawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
+        transform.position = RespawnLocation.transform.position;
     }
 
 }

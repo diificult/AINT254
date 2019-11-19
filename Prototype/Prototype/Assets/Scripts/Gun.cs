@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public Light light;
     public Transform bulletSpawnPoint;
-    public Slider reloadSlider;
+    public GameObject reloadSlider;
     public Animator reloadAnim;
 
     public float fireRate = 0.4f;
@@ -27,6 +27,14 @@ public class Gun : MonoBehaviour
 
     public OnAmmoUpdate onAmmoUpdate;
 
+    private float lastFired;
+
+     void OnEnable()
+    {
+        Debug.Log("Started");
+        lastFired = Time.time;
+        StartCoroutine("LastFired");
+    }
 
     public void Fire()
     {
@@ -36,13 +44,17 @@ public class Gun : MonoBehaviour
             ammo--;
             onAmmoUpdate.Invoke(ammo);
             RaycastHit hit;
-            Ray ray = new Ray(transform.position, transform.parent.transform.eulerAngles);
-            Physics.Raycast(transform.position, transform.parent.transform.eulerAngles, out hit, 100f);
-            hit.transform.SendMessage("Hit", SendMessageOptions.DontRequireReceiver);
-            Debug.Log(hit.collider);
-            Debug.Log("Ray hit-->" + hit.transform.gameObject.name + " at " + hit.distance.ToString());
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow, 10);
-
+            int mask = 1 << 5;
+            mask = ~mask;
+            
+            if (Physics.Raycast(bulletSpawnPoint.position, transform.parent.transform.eulerAngles, out hit, Mathf.Infinity,  mask))
+            {
+                Debug.Log(hit.collider);
+                Debug.Log("Ray hit-->" + hit.transform.gameObject.name + " at " + hit.distance.ToString());
+             //   if (hit.transform.gameObject.layer == LayerMask.GetMask("Player"))
+                    hit.transform.SendMessage("Hit", SendMessageOptions.DontRequireReceiver);
+            }
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.yellow, 10);
           //  Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             Invoke("SetFiring", fireRate);
             light.enabled = true;
@@ -55,7 +67,7 @@ public class Gun : MonoBehaviour
     {
         if (ammo < 10)
         {
-            reloadSlider.enabled = true;
+            reloadSlider.SetActive(true);
             reloadAnim.SetTrigger("ReloadTrigger");
             isReloading = true;
             Invoke("DoneReloading", reloadTime);
@@ -64,7 +76,7 @@ public class Gun : MonoBehaviour
 
     private void DoneReloading()
     {
-        reloadSlider.enabled = false;
+        reloadSlider.SetActive(false);
         isReloading = false;
         ammo = 10;
         onAmmoUpdate.Invoke(ammo);
@@ -77,6 +89,12 @@ public class Gun : MonoBehaviour
     private void SetFiring()
     {
         isFiring = false;
+    }
+    IEnumerator CheckFire()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("Last Fired: " + lastFired + ", Difference: " + (Time.time - lastFired));
+        StartCoroutine("LastFired");
     }
 
 }
