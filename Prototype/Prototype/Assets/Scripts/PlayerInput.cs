@@ -40,9 +40,9 @@ public class PlayerInput : MonoBehaviour
         float x = Input.GetAxis(lookXAxis) * sensitivity;
         y = Mathf.Clamp(y, -45.0f, 45.0f);
 
-        transform.localEulerAngles += new Vector3(y, x, 0);
-        if (transform.localEulerAngles.x > 35 && transform.localEulerAngles.x < 90) transform.localEulerAngles = new Vector3(35f, transform.localEulerAngles.y, 0);
-        if (transform.localEulerAngles.x < 325 && transform.localEulerAngles.x > 90) transform.localEulerAngles = new Vector3(325, transform.localEulerAngles.y, 0);
+        transform.eulerAngles += new Vector3(y, x, 0);
+        if (transform.eulerAngles.x > 35 && transform.eulerAngles.x < 90) transform.eulerAngles = new Vector3(35f, transform.eulerAngles.y, 0);
+        if (transform.eulerAngles.x < 325 && transform.eulerAngles.x > 90) transform.eulerAngles = new Vector3(325, transform.eulerAngles.y, 0);
 
         if  (Input.GetAxis(fire) > 0)
         {

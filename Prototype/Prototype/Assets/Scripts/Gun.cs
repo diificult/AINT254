@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject reloadSlider;
     public Animator reloadAnim;
+    public ParticleSystem particals;
 
     public float fireRate = 0.4f;
     public float lightLength = 0.1f;
@@ -47,18 +48,21 @@ public class Gun : MonoBehaviour
             int mask = 1 << 5;
             mask = ~mask;
             
-            if (Physics.Raycast(bulletSpawnPoint.position, transform.parent.transform.eulerAngles, out hit, Mathf.Infinity,  mask))
+            if (Physics.Raycast(bulletSpawnPoint.position, 
+                bulletSpawnPoint.transform.TransformDirection(bulletSpawnPoint.transform.forward), out hit, Mathf.Infinity))
             {
                 Debug.Log(hit.collider);
                 Debug.Log("Ray hit-->" + hit.transform.gameObject.name + " at " + hit.distance.ToString());
              //   if (hit.transform.gameObject.layer == LayerMask.GetMask("Player"))
+             if (hit.transform.name != transform.name)
                     hit.transform.SendMessage("Hit", SendMessageOptions.DontRequireReceiver);
             }
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.yellow, 10);
+            Debug.DrawRay(bulletSpawnPoint.position, transform.TransformDirection(Vector3.forward)*hit.distance, Color.yellow, 10);
           //  Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             Invoke("SetFiring", fireRate);
             light.enabled = true;
             Invoke("GunLight", lightLength);
+            particals.Play();
             if (ammo == 0) Reload();
         }
     }
