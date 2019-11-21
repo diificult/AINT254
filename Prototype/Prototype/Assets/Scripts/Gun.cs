@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
     public float reloadTime = 1.5f;
 
     private bool isFiring = false;
-    private int ammo = 10;
+    private int ammo = 5;
     private bool isReloading = false;
 
     public OnAmmoUpdate onAmmoUpdate;
@@ -69,7 +69,7 @@ public class Gun : MonoBehaviour
 
     public void Reload()
     {
-        if (ammo < 10)
+        if (ammo < 5)
         {
             reloadSlider.SetActive(true);
             reloadAnim.SetTrigger("ReloadTrigger");
@@ -82,7 +82,7 @@ public class Gun : MonoBehaviour
     {
         reloadSlider.SetActive(false);
         isReloading = false;
-        ammo = 10;
+        ammo = 5;
         onAmmoUpdate.Invoke(ammo);
     }
 
