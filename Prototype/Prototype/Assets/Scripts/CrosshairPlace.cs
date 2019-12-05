@@ -11,7 +11,7 @@ public class CrosshairPlace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 crosshairPos = new Vector3(c.transform.position.x +(c.scaledPixelWidth / 2), c.transform.position.x +  (c.scaledPixelHeight/2),0);
+        Vector3 crosshairPos = new Vector3(c.transform.position.x *(c.scaledPixelWidth / 2), c.transform.position.x +  (c.scaledPixelHeight/2),0);
         transform.position = crosshairPos;
     }
 }
