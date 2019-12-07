@@ -63,20 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scenes\GameManager.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\ControllerManager.cs" />
     <Compile Include="Assets\Scripts\CrosshairPlace.cs" />
+    <Compile Include="Assets\Scripts\DisplayWinner.cs" />
     <Compile Include="Assets\Scripts\GameUI.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\PlayerTwoCameraControl.cs" />
-    <Compile Include="Assets\Scripts\PlayerTwoGun.cs" />
-    <Compile Include="Assets\Scripts\PlayerTwoMovement.cs" />
     <Compile Include="Assets\Scripts\RespawnSystem.cs" />
+    <Compile Include="Assets\Scripts\SceneController.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\UpdateAmmo.cs" />
     <None Include="Assets\Fonts\Font Sources.txt" />

@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 177608153}
   - component: {fileID: 177608152}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Player Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 310319377}
   - component: {fileID: 310319376}
   - component: {fileID: 310319375}
+  - component: {fileID: 310319379}
   - component: {fileID: 310319378}
   m_Layer: 5
   m_Name: Canvas
@@ -315,8 +316,8 @@ RectTransform:
   - {fileID: 177608151}
   - {fileID: 2141875955}
   - {fileID: 1853106737}
-  m_Father: {fileID: 664270248}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -392,7 +393,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 310319373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f8060505bc86294bb5f9cc2a9a01274, type: 3}
+  m_Script: {fileID: 11500000, guid: befafc25efd0b8945aad07fb65e7e0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winnerText: {fileID: 177608152}
+--- !u!114 &310319379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310319373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf88999693cb5e344ac565dbee1e3c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &592250108
@@ -407,7 +421,7 @@ GameObject:
   - component: {fileID: 592250111}
   - component: {fileID: 592250110}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Winner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -553,8 +567,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 310319374}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -807,7 +820,7 @@ GameObject:
   - component: {fileID: 1853106739}
   - component: {fileID: 1853106738}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Quit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -875,7 +888,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1853106739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 310319379}
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1853106739

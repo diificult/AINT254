@@ -12,7 +12,15 @@ public class GameUI : MonoBehaviour
     public int p1Score = 0;
     public int p2Score = 0;
 
+    public SceneController sc;
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Updatep2Score();
+        }
+    }
 
     public void Updatep1Score()
     {
@@ -20,7 +28,7 @@ public class GameUI : MonoBehaviour
         p1ScoreText.text = "" + p1Score;
         if  (p1Score == 7)
         {
-
+            sc.EndGame(1);
         }
     }
     public void Updatep2Score()
@@ -29,6 +37,7 @@ public class GameUI : MonoBehaviour
         p2ScoreText.text = "" + p2Score;
         if (p2Score == 7)
         {
+            sc.EndGame(2);
         }
     }
 

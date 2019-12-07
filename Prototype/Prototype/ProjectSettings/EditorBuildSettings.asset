@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_PrototypeScene.unity
     guid: ae91bbfc6a3e7e1419120006797b139a
+  - enabled: 1
+    path: Assets/Scenes/End Screen.unity
+    guid: 0a06b8d473d02cd4d8264e7531b30aeb
   m_configObjects: {}
