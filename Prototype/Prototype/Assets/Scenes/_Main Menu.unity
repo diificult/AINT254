@@ -985,7 +985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -279.9, y: -134}
+  m_AnchoredPosition: {x: -279.95, y: -148.63}
   m_SizeDelta: {x: 63.4, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1022377954
@@ -1247,8 +1247,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -10.8}
-  m_SizeDelta: {x: 615.3, y: 197.1}
+  m_AnchoredPosition: {x: -4, y: -22.94}
+  m_SizeDelta: {x: 615.3, y: 221.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1522090553
 MonoBehaviour:
@@ -1292,7 +1292,8 @@ MonoBehaviour:
     The challenge? You''re both in the dark.
 
 
-    Use your gun to shoot of lights to see where you''re going and find your opponent.'
+    Use your gun to shoot bullets, which provide light, to see where you''re going
+    and find your opponent.'
 --- !u!222 &1522090554
 CanvasRenderer:
   m_ObjectHideFlags: 0

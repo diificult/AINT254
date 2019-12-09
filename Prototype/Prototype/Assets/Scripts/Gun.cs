@@ -47,9 +47,12 @@ public class Gun : MonoBehaviour
             RaycastHit hit;
             int mask = 1 << 5;
             mask = ~mask;
-            
-            if (Physics.Raycast(bulletSpawnPoint.position, 
-                bulletSpawnPoint.transform.TransformDirection(bulletSpawnPoint.transform.forward), out hit, Mathf.Infinity))
+
+            // Delete this for better performance!
+            Debug.DrawRay(bulletSpawnPoint.position, transform.TransformDirection(Vector3.forward) * 100 /* * hit.distance*/, Color.yellow, 10);
+
+            if (Physics.Raycast(bulletSpawnPoint.position,
+                /*bulletSpawnPoint.*/transform.TransformDirection(/*bulletSpawnPoint.transform.*/Vector3.forward), out hit, Mathf.Infinity, LayerMask.GetMask("Player")))
             {
                 Debug.Log(hit.collider);
                 Debug.Log("Ray hit-->" + hit.transform.gameObject.name + " at " + hit.distance.ToString());
@@ -57,7 +60,7 @@ public class Gun : MonoBehaviour
              if (hit.transform.name != transform.name)
                     hit.transform.SendMessage("Hit", SendMessageOptions.DontRequireReceiver);
             }
-            Debug.DrawRay(bulletSpawnPoint.position, transform.TransformDirection(Vector3.forward)*hit.distance, Color.yellow, 10);
+            
           //  Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             Invoke("SetFiring", fireRate);
             light.enabled = true;
