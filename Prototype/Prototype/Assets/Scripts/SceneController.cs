@@ -6,21 +6,25 @@ public class SceneController : MonoBehaviour
 {
     public static int winner;
 
-
-
-
-    //Unimplemented - Will  be used once main menu created
     public void StartGame()
     {
-        SceneManager.LoadScene("Map 1");
+        SceneManager.LoadScene("_Map1");
     }
 
     public void EndGame(int w)
     {
         winner = w;
-        SceneManager.LoadScene("End Screen");
+        SceneManager.LoadScene("_End Screen");
         Cursor.lockState = CursorLockMode.None;
     }
+
+    //Only currently imlements for end screen. Not yet for pause menu
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("_Main Menu");
+        Cursor.lockState = CursorLockMode.None;
+    }
+
 
     public int GetWinner()
     {
