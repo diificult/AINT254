@@ -49,13 +49,13 @@ public class Gun : MonoBehaviour
             mask = ~mask;
 
             // Delete this for better performance!
-            Debug.DrawRay(bulletSpawnPoint.position, transform.TransformDirection(Vector3.forward) * 100 /* * hit.distance*/, Color.yellow, 10);
+          //  Debug.DrawRay(bulletSpawnPoint.position, transform.TransformDirection(Vector3.forward) * 100 /* * hit.distance*/, Color.yellow, 10);
 
             if (Physics.Raycast(bulletSpawnPoint.position,
                 /*bulletSpawnPoint.*/transform.TransformDirection(/*bulletSpawnPoint.transform.*/Vector3.forward), out hit, Mathf.Infinity, LayerMask.GetMask("Player")))
             {
-                Debug.Log(hit.collider);
-                Debug.Log("Ray hit-->" + hit.transform.gameObject.name + " at " + hit.distance.ToString());
+            //    Debug.Log(hit.collider);
+             //   Debug.Log("Ray hit-->" + hit.transform.gameObject.name + " at " + hit.distance.ToString());
              //   if (hit.transform.gameObject.layer == LayerMask.GetMask("Player"))
              if (hit.transform.name != transform.name)
                     hit.transform.SendMessage("Hit", SendMessageOptions.DontRequireReceiver);
@@ -63,8 +63,8 @@ public class Gun : MonoBehaviour
             
           //  Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             Invoke("SetFiring", fireRate);
-            light.enabled = true;
-            Invoke("GunLight", lightLength);
+            //light.enabled = true;
+            //Invoke("GunLight", lightLength);
             particals.Play();
             if (ammo == 0) Reload();
         }
