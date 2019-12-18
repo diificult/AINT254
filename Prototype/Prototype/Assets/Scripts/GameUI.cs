@@ -12,6 +12,10 @@ public class GameUI : MonoBehaviour
     public int p1Score = 0;
     public int p2Score = 0;
 
+    public Canvas pauseMenu;
+
+    private bool isPaused = false;
+
     public SceneController sc;
 
     public void Update()
@@ -20,6 +24,7 @@ public class GameUI : MonoBehaviour
         {
             Updatep2Score();
         }
+        else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start ")) PauseGame();
     }
 
     public void Updatep1Score()
@@ -40,5 +45,23 @@ public class GameUI : MonoBehaviour
             sc.EndGame(2);
         }
     }
+
+    private void PauseGame()
+    {
+        if (isPaused)
+        {
+            Time.timeScale = 1f;
+            pauseMenu.gameObject.SetActive(false);// = false;
+            isPaused = false;
+        }  else
+        {
+            Time.timeScale = 0f;
+            pauseMenu.gameObject.SetActive(true);
+            isPaused = true;
+        }
+
+        Debug.Log("Timescale : " + Time.timeScale);
+    }
+    
 
 }

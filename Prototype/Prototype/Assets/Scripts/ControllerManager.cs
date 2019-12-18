@@ -12,8 +12,12 @@ public class ControllerManager : MonoBehaviour
     Animator player2Animation;
     public GameObject player1Object;
     public GameObject player2Object;
+    public GameObject player1PressA;
+    public GameObject player2PressA;
     public Canvas controllerInfo;
     public GameObject[] guns = new GameObject[2];
+    public GameUI UIController;
+   
 
     public Text pressStart;
 
@@ -39,6 +43,8 @@ public class ControllerManager : MonoBehaviour
             {
                 player1 = input;
                 player1Image.color = Color.green;
+                player1PressA.SetActive(false);
+                
             }
             else if (player1 == input)
             {
@@ -48,6 +54,7 @@ public class ControllerManager : MonoBehaviour
             {
                 player2 = input;
                 player2Image.color = Color.green;
+                player2PressA.SetActive(false);
             } 
             else if (player2 == input)   
             {
@@ -68,6 +75,7 @@ public class ControllerManager : MonoBehaviour
                 player2Object.GetComponent<RespawnSystem>().Spawn();
                 guns[1].GetComponent<Gun>().enabled = true;
                 controllerInfo.enabled = false;
+                UIController.enabled = true;
             }
         }
 
