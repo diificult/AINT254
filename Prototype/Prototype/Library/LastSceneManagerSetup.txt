@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/_Map1.unity
+- path: Assets/Scenes/_japanese.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
