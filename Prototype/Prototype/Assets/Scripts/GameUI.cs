@@ -24,7 +24,7 @@ public class GameUI : MonoBehaviour
         {
             Updatep2Score();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start ")) PauseGame();
+        else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start")) PauseGame();
     }
 
     public void Updatep1Score()
