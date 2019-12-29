@@ -18,7 +18,11 @@ public class ControllerManager : MonoBehaviour
     public GameObject[] guns = new GameObject[2];
     public GameUI UIController;
     public GameObject IGUI;
-   
+    public Slider p1SensSlider;
+    private bool p1SensMoved =  false;
+    public Slider p2SensSlider;
+    private bool p2SensMoved = false;
+
 
     public Text pressStart;
 
@@ -32,7 +36,7 @@ public class ControllerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Gets if there is a controller input. Efficient method to add additional joysticks.
+        //Joystick input
         string input = null;
         if (Input.GetButtonDown("J1A")) input = "J1";
         else if (Input.GetButtonDown("J2A")) input = "J2";
@@ -62,6 +66,47 @@ public class ControllerManager : MonoBehaviour
                 player2Animation.SetTrigger("ButtonPressed");
             }
         }
+        //Checks this first to make sure there is no error
+        if (player1 != null)
+        {
+            if (Input.GetAxis(player1 + "Horizontal") > 0.4 && !p1SensMoved)
+            {
+                p1SensSlider.value += 1;
+                p1SensMoved = true;
+            }
+            
+            else if (Input.GetAxis(player1 + "Horizontal") <-0.4 && !p1SensMoved)
+            {
+                p1SensSlider.value -= 1;
+                p1SensMoved = true;
+            }else if (Input.GetAxis(player1 + "Horizontal") < 0.4  && Input.GetAxis(player1 + "Horizontal") > -0.4)
+            {
+                p1SensMoved = false;
+            }
+
+        }
+        if (player2 != null)
+        {
+            if (Input.GetAxis(player2 + "Horizontal") > 0.4 && !p2SensMoved)
+            {
+                p2SensSlider.value += 1;
+                p2SensMoved = true;
+            }
+
+            else if (Input.GetAxis(player2 + "Horizontal") < -0.4 && !p2SensMoved)
+            {
+                p2SensSlider.value -= 1;
+                p2SensMoved = true;
+            }
+            else if (Input.GetAxis(player2 + "Horizontal") < 0.4 && Input.GetAxis(player2 + "Horizontal") > -0.4)
+            {
+                p2SensMoved = false;
+            }
+
+        }
+
+
+        //Once both players are in - Start Game
         if (player1 != null && player2 != null)
         {
             pressStart.text = "▶ Press Start ◀";
@@ -72,6 +117,8 @@ public class ControllerManager : MonoBehaviour
                 player1Object.transform.SendMessage("SetControllerNumber", player1, SendMessageOptions.DontRequireReceiver);
                 player2Object.GetComponent<PlayerInput>().enabled = true;
                 player2Object.transform.SendMessage("SetControllerNumber", player2, SendMessageOptions.DontRequireReceiver);
+                player1Object.GetComponent<PlayerInput>().sensitivity = p1SensSlider.value/2;
+                player2Object.GetComponent<PlayerInput>().sensitivity = p2SensSlider.value;
                 guns[0].GetComponent<Gun>().enabled = true;
                 player1Object.GetComponent<RespawnSystem>().Spawn();
                 player2Object.GetComponent<RespawnSystem>().Spawn();
@@ -81,6 +128,8 @@ public class ControllerManager : MonoBehaviour
 
             }
         }
+
+
 
     }
 }

@@ -18,7 +18,11 @@ public class GameUI : MonoBehaviour
 
     public SceneController sc;
 
-    public void Update()
+    private int firstTo;
+
+
+
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -27,11 +31,16 @@ public class GameUI : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start")) PauseGame();
     }
 
+    private void Start()
+    {
+        firstTo = sc.GetFirstTo();   
+    }
+
     public void Updatep1Score()
     {
         p1Score++;
         p1ScoreText.text = "" + p1Score;
-        if  (p1Score == 7)
+        if  (p1Score == firstTo)
         {
             sc.EndGame(1);
         }
@@ -40,7 +49,7 @@ public class GameUI : MonoBehaviour
     {
         p2Score++;
         p2ScoreText.text = "" + p2Score;
-        if (p2Score == 7)
+        if (p2Score == firstTo)
         {
             sc.EndGame(2);
         }

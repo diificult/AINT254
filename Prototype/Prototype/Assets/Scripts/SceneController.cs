@@ -5,10 +5,15 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour
 {
     public static int winner;
+    private static int firstTo;
+
+    [SerializeField]
+    private Text firstToText;
 
     public void StartGame()
     {
         SceneManager.LoadScene("_japanese");
+        firstTo = int.Parse(firstToText.text);
     }
 
     public void EndGame(int w)
@@ -30,6 +35,11 @@ public class SceneController : MonoBehaviour
     {
         return winner;
     }
+    public int GetFirstTo()
+    {
+        return firstTo;
+    }
+
 
     public void ExitGame()
     {

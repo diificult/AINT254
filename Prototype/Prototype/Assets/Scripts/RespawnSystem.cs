@@ -10,6 +10,7 @@ public class RespawnSystem : MonoBehaviour
 
     int countdown = 5;
     public List<GameObject> spawnLocations = new List<GameObject>();
+    public GameObject originSpawn;
     public Text countdownText;
     public GameObject theGun;
     
@@ -56,9 +57,6 @@ public class RespawnSystem : MonoBehaviour
 
     public void Spawn()
     {
-        GameObject RespawnLocation = new GameObject();
-        RespawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
-        transform.position = RespawnLocation.transform.position;
+        transform.position = originSpawn.transform.position;
     }
-
 }

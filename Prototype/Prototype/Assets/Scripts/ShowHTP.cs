@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class ShowHTP : MonoBehaviour
 {
     [SerializeField]
-    private RawImage HTP;
+    private GameObject menu;
 
     public void Show()
     {
-        HTP.gameObject.SetActive(true);
+        menu.gameObject.SetActive(true);
     }
 
     public void Hide()
     {
-        HTP.gameObject.SetActive(false);
+        menu.gameObject.SetActive(false);
     }
     
 }
