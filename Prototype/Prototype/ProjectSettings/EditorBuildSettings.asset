@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_End Screen.unity
     guid: 0a06b8d473d02cd4d8264e7531b30aeb
+  - enabled: 1
+    path: Assets/Scenes/_japanese.unity
+    guid: 488da690685c5204aa8ef20b5457c300
   m_configObjects: {}

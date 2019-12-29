@@ -17,6 +17,7 @@ public class ControllerManager : MonoBehaviour
     public Canvas controllerInfo;
     public GameObject[] guns = new GameObject[2];
     public GameUI UIController;
+    public GameObject IGUI;
    
 
     public Text pressStart;
@@ -66,6 +67,7 @@ public class ControllerManager : MonoBehaviour
             pressStart.text = "▶ Press Start ◀";
             if (Input.GetButtonDown("Start"))
             {
+                IGUI.gameObject.SetActive(true);
                 player1Object.GetComponent<PlayerInput>().enabled = true;
                 player1Object.transform.SendMessage("SetControllerNumber", player1, SendMessageOptions.DontRequireReceiver);
                 player2Object.GetComponent<PlayerInput>().enabled = true;
@@ -76,6 +78,7 @@ public class ControllerManager : MonoBehaviour
                 guns[1].GetComponent<Gun>().enabled = true;
                 controllerInfo.enabled = false;
                 UIController.enabled = true;
+
             }
         }
 

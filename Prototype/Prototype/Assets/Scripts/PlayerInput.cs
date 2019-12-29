@@ -29,7 +29,7 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         rigidbody = GetComponent<Rigidbody>();
-        Vector3 movement = new Vector3(Input.GetAxis(moveXAxis), (Vector3.down.y * -9.81f), Input.GetAxis(moveYAxis)) * speed;
+        Vector3 movement = new Vector3(Input.GetAxis(moveXAxis), rigidbody.velocity.y, Input.GetAxis(moveYAxis)) * speed;
         movement = c.transform.TransformDirection(movement);
         movement.y = 0;
         rigidbody.velocity = movement;

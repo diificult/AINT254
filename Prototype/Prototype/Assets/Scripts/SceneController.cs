@@ -8,7 +8,7 @@ public class SceneController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("_Map1");
+        SceneManager.LoadScene("_japanese");
     }
 
     public void EndGame(int w)

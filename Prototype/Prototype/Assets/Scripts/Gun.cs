@@ -52,7 +52,7 @@ public class Gun : MonoBehaviour
           //  Debug.DrawRay(bulletSpawnPoint.position, transform.TransformDirection(Vector3.forward) * 100 /* * hit.distance*/, Color.yellow, 10);
 
             if (Physics.Raycast(bulletSpawnPoint.position,
-                /*bulletSpawnPoint.*/transform.TransformDirection(/*bulletSpawnPoint.transform.*/Vector3.forward), out hit, Mathf.Infinity, LayerMask.GetMask("Player")))
+                /*bulletSpawnPoint.*/transform.TransformDirection(/*bulletSpawnPoint.transform.*/Vector3.forward), out hit, Mathf.Infinity))
             {
             //    Debug.Log(hit.collider);
              //   Debug.Log("Ray hit-->" + hit.transform.gameObject.name + " at " + hit.distance.ToString());
