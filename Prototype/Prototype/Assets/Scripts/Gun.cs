@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
     public GameObject reloadSlider;
     public Animator reloadAnim;
     public ParticleSystem particals;
+    public Transform camera;
 
     public float fireRate = 0.4f;
     public float lightLength = 0.1f;
@@ -52,7 +53,7 @@ public class Gun : MonoBehaviour
           //  Debug.DrawRay(bulletSpawnPoint.position, transform.TransformDirection(Vector3.forward) * 100 /* * hit.distance*/, Color.yellow, 10);
 
             if (Physics.Raycast(bulletSpawnPoint.position,
-                /*bulletSpawnPoint.*/transform.TransformDirection(/*bulletSpawnPoint.transform.*/Vector3.forward), out hit, Mathf.Infinity))
+                transform.TransformDirection(camera.forward), out hit, Mathf.Infinity))
             {
             //    Debug.Log(hit.collider);
              //   Debug.Log("Ray hit-->" + hit.transform.gameObject.name + " at " + hit.distance.ToString());

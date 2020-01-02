@@ -380,6 +380,7 @@ MonoBehaviour:
   reloadSlider: {fileID: 0}
   reloadAnim: {fileID: 0}
   particals: {fileID: 0}
+  camera: {fileID: 0}
   fireRate: 0.75
   lightLength: 0.25
   reloadTime: 2
@@ -514,6 +515,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  originSpawn: {fileID: 0}
   countdownText: {fileID: 0}
   theGun: {fileID: 8991215442696926210}
   onDamaged:

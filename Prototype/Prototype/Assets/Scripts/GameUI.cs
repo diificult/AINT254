@@ -31,9 +31,10 @@ public class GameUI : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start")) PauseGame();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        firstTo = sc.GetFirstTo();   
+        firstTo = sc.GetFirstTo();
+        Debug.Log(""+firstTo);
     }
 
     public void Updatep1Score()
