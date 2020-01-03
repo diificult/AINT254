@@ -59,7 +59,9 @@ public class PlayerInput : MonoBehaviour
         if (c.transform.eulerAngles.x > 35 && c.transform.eulerAngles.x < 90) c.transform.eulerAngles = new Vector3(35f, c.transform.eulerAngles.y, 0);
         if (c.transform.eulerAngles.x < 325 && transform.eulerAngles.x > 90) c.transform.eulerAngles = new Vector3(325, c.transform.eulerAngles.y, 0);
         // body.rotation =  new Quaternion(body.rotation.x, c.transform.eulerAngles.y, body.rotation.z, 0);
-        transform.Rotate(Vector3.up * Input.GetAxis(lookXAxis) * sensitivity *2);
+        // transform.Rotate(Vector3.up * Input.GetAxis(lookXAxis) * sensitivity *2);
+        transform.rotation = Quaternion.Euler(0, c.transform.rotation.y, 0);
+        
 
         //Gun
         if (Input.GetAxis(fire) > 0)
