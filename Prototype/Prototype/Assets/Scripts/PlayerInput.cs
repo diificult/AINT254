@@ -33,12 +33,6 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Old Movement
-
-        // Vector3 movement = new Vector3(Input.GetAxis(moveXAxis), rigidbody.velocity.y, Input.GetAxis(moveYAxis)) * speed;
-        //   movement = c.transform.TransformDirection(movement);
-        //   movement.y = rigidbody.velocity.y + (-9.81f * Time.deltaTime);
-        //  rigidbody.velocity = movement;
 
         isGrounded = Physics.CheckSphere(GroundChecker.position, 0.4f, groundMask);
         if (isGrounded && v.y == 0) v.y = -2f;

@@ -5,44 +5,52 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
-
+    //UI Text for the score
     public Text p1ScoreText;
     public Text p2ScoreText;
 
+    //Stores the current score
     public int p1Score = 0;
     public int p2Score = 0;
 
+    //Pause screen
     public Canvas pauseMenu;
-
+    //Stores if the game is paused
     private bool isPaused = false;
 
+    //Scene controller that  changes the scene
     public SceneController sc;
 
+    //Stores what the score is first  to
     private int firstTo;
 
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Updatep2Score();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start")) PauseGame();
+        
+        //Gets if the escape key or either pause button is pressed
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start")) PauseGame();
     }
 
+
+    
     private void OnEnable()
     {
+        //Gets first to get to from the scene controller
         firstTo = sc.GetFirstTo();
-        Debug.Log(""+firstTo);
     }
 
     public void Updatep1Score()
     {
+        //Increases the score by 1
         p1Score++;
+        //Sets the text to the new score
         p1ScoreText.text = "" + p1Score;
+        //If player achieves winning score
         if  (p1Score == firstTo)
         {
+            //Take the game to the end screen
             sc.EndGame(1);
         }
     }
@@ -58,10 +66,14 @@ public class GameUI : MonoBehaviour
 
     private void PauseGame()
     {
+        //Checks to see if the game is paused or not 
         if (isPaused)
         {
+            //Brings the time scale back up
             Time.timeScale = 1f;
-            pauseMenu.gameObject.SetActive(false);// = false;
+            //Removes pause  menu
+            pauseMenu.gameObject.SetActive(false);
+            //Store that the  game has been unpaused
             isPaused = false;
         }  else
         {
@@ -70,7 +82,6 @@ public class GameUI : MonoBehaviour
             isPaused = true;
         }
 
-        Debug.Log("Timescale : " + Time.timeScale);
     }
     
 

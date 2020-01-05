@@ -64,9 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Breakable.cs" />
-    <Compile Include="Assets\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Scripts\CameraControl.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\ChangeValue.cs" />
     <Compile Include="Assets\Scripts\ControllerManager.cs" />
     <Compile Include="Assets\Scripts\DisplayWinner.cs" />
