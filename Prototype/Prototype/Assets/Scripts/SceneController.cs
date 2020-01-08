@@ -23,7 +23,6 @@ public class SceneController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    //Only currently imlements for end screen. Not yet for pause menu
     public void MainMenu()
     {
         SceneManager.LoadScene("_Main Menu");
