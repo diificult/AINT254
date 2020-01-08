@@ -7,11 +7,13 @@ public class Partical : MonoBehaviour
 
     private void Update()
     {
+        //Doesnt move the partical system unless its not emitting.
         if (!GetComponent<ParticleSystem>().isEmitting)
         {
             
+            //Moves infront of the player
             Vector3 playerPos = bulletSpawnPoint.transform.position;
-            transform.position = new Vector3(playerPos.x + 0.35f  +0.09f, playerPos.y - 0.29f +1.75f, playerPos.z + 0.47f  + 0.14f);
+            transform.position = new Vector3(playerPos.x, playerPos.y, playerPos.z);
             transform.rotation = bulletSpawnPoint.transform.rotation;
         }
 

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class RespawnSystem : MonoBehaviour
 {
 
+    //Count down til respawn
     int countdown = 5;
     public List<GameObject> spawnLocations = new List<GameObject>();
     public GameObject originSpawn;
@@ -15,7 +16,6 @@ public class RespawnSystem : MonoBehaviour
     public GameObject theGun;
     
 
-    //public UnityEvent onDie;
     public UnityEvent onDamaged;
     public void Hit()
     {
@@ -39,6 +39,7 @@ public class RespawnSystem : MonoBehaviour
         countdown--;
         if (countdown == 0)
         {
+            //Spawns and re-enables the player
             GameObject RespawnLocation = new GameObject();
             RespawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
            transform.position = RespawnLocation.transform.position;
@@ -50,6 +51,7 @@ public class RespawnSystem : MonoBehaviour
             countdown = 5;
         } else
         {
+            // Recurrsion is used until the countdown is done
             countdownText.text = "Respawn in: " + countdown;
             Invoke("CountdownNext", 1);
         }

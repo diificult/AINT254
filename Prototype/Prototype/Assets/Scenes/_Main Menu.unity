@@ -548,6 +548,7 @@ GameObject:
   - component: {fileID: 209737192}
   - component: {fileID: 209737194}
   - component: {fileID: 209737193}
+  - component: {fileID: 209737195}
   m_Layer: 5
   m_Name: HTP
   m_TagString: Untagged
@@ -613,6 +614,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209737191}
   m_CullTransparentMesh: 0
+--- !u!114 &209737195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209737191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e5e6de5601dd44f9d34daf4fd2c014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 209737191}
 --- !u!1 &250332436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1800,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 209737195}
         m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
@@ -1926,7 +1940,6 @@ GameObject:
   - component: {fileID: 1268783278}
   - component: {fileID: 1268783277}
   - component: {fileID: 1268783281}
-  - component: {fileID: 1268783283}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2033,18 +2046,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstToText: {fileID: 838973632}
---- !u!114 &1268783283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268783276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb00eef1953733442abe42ed05409b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1290736181
 GameObject:
   m_ObjectHideFlags: 0
@@ -7879,7 +7880,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 209737195}
         m_MethodName: Show
         m_Mode: 1
         m_Arguments:
