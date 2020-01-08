@@ -7,6 +7,7 @@ public class UpdateAmmo : MonoBehaviour
 {
     public void  updateAmmo(int Ammo)
     {
+        //Updates ammo 
         GetComponent<Text>().text = Ammo + " / 5";
     }
 }
