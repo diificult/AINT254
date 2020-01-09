@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
-    public void Hit()
+    public void OnParticleCollision(GameObject other)
     {
         Object.Destroy(gameObject);
     }

@@ -1983,6 +1983,11 @@ PrefabInstance:
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 8991215441921754478}
+    - target: {fileID: 6924855184526850447, guid: dbce905a1330e55409897f7dc1ffb3f3,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbce905a1330e55409897f7dc1ffb3f3, type: 3}
 --- !u!4 &351072713 stripped
@@ -2327,7 +2332,9 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.10588236
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3700175203426280467, guid: 44f3b0153f3d6444bac4ee8270959c70, type: 3}
+    - {fileID: 3700175203051058926, guid: 44f3b0153f3d6444bac4ee8270959c70, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 44f3b0153f3d6444bac4ee8270959c70, type: 3}
 --- !u!224 &369994771 stripped
 RectTransform:
@@ -5373,6 +5380,7 @@ MonoBehaviour:
   originSpawn: {fileID: 368901868}
   countdownText: {fileID: 369994773}
   theGun: {fileID: 8991215442756833683}
+  body: {fileID: 0}
   onDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -8477,6 +8485,7 @@ MonoBehaviour:
   originSpawn: {fileID: 631343014}
   countdownText: {fileID: 369994774}
   theGun: {fileID: 8991215442416306232}
+  body: {fileID: 0}
   onDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -10504,6 +10513,11 @@ PrefabInstance:
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 8991215443326590149}
+    - target: {fileID: 6924855184526850447, guid: dbce905a1330e55409897f7dc1ffb3f3,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbce905a1330e55409897f7dc1ffb3f3, type: 3}
 --- !u!4 &1660013236 stripped

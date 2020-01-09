@@ -14,25 +14,37 @@ public class RespawnSystem : MonoBehaviour
     public GameObject originSpawn;
     public Text countdownText;
     public GameObject theGun;
+    public GameObject body;
     
 
     public UnityEvent onDamaged;
-    public void Hit()
+  //  public void Hit()
+  //  {
+  //      Debug.Log("Hit: " + transform.name);
+  //      onDamaged.Invoke();
+  //      body.GetComponent<Renderer>().enabled = false;
+  //      GetComponent<BoxCollider>().enabled = false;
+  //      GetComponent<PlayerInput>().enabled = false;
+  //      countdownText.GetComponent<Animator>().SetTrigger("Countdown");
+  //      theGun.SetActive(false);
+   //     countdownText.text = "Respawn in: " + countdown;
+  //      Invoke("CountdownNext", 1);   
+  //  }
+    void OnParticleCollision(GameObject other)
     {
         Debug.Log("Hit: " + transform.name);
         onDamaged.Invoke();
-        GetComponent<Renderer>().enabled = false;
-        GetComponent<CapsuleCollider>().enabled = false;
+        body.GetComponent<Renderer>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
         GetComponent<PlayerInput>().enabled = false;
         countdownText.GetComponent<Animator>().SetTrigger("Countdown");
         theGun.SetActive(false);
         countdownText.text = "Respawn in: " + countdown;
         Invoke("CountdownNext", 1);
-        
-        
     }
 
-   
+
+
 
     private void CountdownNext()
     {
@@ -43,8 +55,8 @@ public class RespawnSystem : MonoBehaviour
             GameObject RespawnLocation = new GameObject();
             RespawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
            transform.position = RespawnLocation.transform.position;
-            GetComponent<Renderer>().enabled = true;
-            GetComponent<CapsuleCollider>().enabled = true;
+            body.GetComponent<Renderer>().enabled = true;
+            GetComponent<BoxCollider>().enabled = true;
             GetComponent<PlayerInput>().enabled = true;
             countdownText.GetComponent<Animator>().SetTrigger("GoOut");
             theGun.SetActive(true);
