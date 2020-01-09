@@ -52,12 +52,13 @@ public class RespawnSystem : MonoBehaviour
         if (countdown == 0)
         {
             //Spawns and re-enables the player
+
+            body.GetComponent<Renderer>().enabled = true;
+            GetComponent<BoxCollider>().enabled = true;
+            GetComponent<PlayerInput>().enabled = true;            
             GameObject RespawnLocation = new GameObject();
             RespawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
            transform.position = RespawnLocation.transform.position;
-            body.GetComponent<Renderer>().enabled = true;
-            GetComponent<BoxCollider>().enabled = true;
-            GetComponent<PlayerInput>().enabled = true;
             countdownText.GetComponent<Animator>().SetTrigger("GoOut");
             theGun.SetActive(true);
             countdown = 5;

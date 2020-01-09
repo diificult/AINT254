@@ -2332,6 +2332,18 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.10588236
       objectReference: {fileID: 0}
+    - target: {fileID: 3700175204077701202, guid: 44f3b0153f3d6444bac4ee8270959c70,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2f91c5550836ab4e9b50fa94267cd64,
+        type: 3}
+    - target: {fileID: 3700175204014621679, guid: 44f3b0153f3d6444bac4ee8270959c70,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2f91c5550836ab4e9b50fa94267cd64,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 3700175203426280467, guid: 44f3b0153f3d6444bac4ee8270959c70, type: 3}
     - {fileID: 3700175203051058926, guid: 44f3b0153f3d6444bac4ee8270959c70, type: 3}
@@ -5380,12 +5392,12 @@ MonoBehaviour:
   originSpawn: {fileID: 368901868}
   countdownText: {fileID: 369994773}
   theGun: {fileID: 8991215442756833683}
-  body: {fileID: 0}
+  body: {fileID: 8991215443314476092}
   onDamaged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 249198816}
-        m_MethodName: Updatep2Score
+        m_MethodName: Updatep1Score
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8485,7 +8497,7 @@ MonoBehaviour:
   originSpawn: {fileID: 631343014}
   countdownText: {fileID: 369994774}
   theGun: {fileID: 8991215442416306232}
-  body: {fileID: 0}
+  body: {fileID: 8991215441900215703}
   onDamaged:
     m_PersistentCalls:
       m_Calls:
