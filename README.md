@@ -17,5 +17,6 @@ You must have 2 controllers connected.
 
 # Images
 
-
+![Screenshot_71](https://user-images.githubusercontent.com/22201364/120553794-d5b66580-c3f0-11eb-8c64-b64ab41b3ffc.png)
+![Screenshot_72](https://user-images.githubusercontent.com/22201364/120553798-d7802900-c3f0-11eb-8728-c93e22b6e045.png)
 
