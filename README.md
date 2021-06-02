@@ -15,6 +15,11 @@ Change the score limit in the options menu.
 
 You must have 2 controllers connected.
 
+# How to install
+
+Download zip file from releases
+Run .exe
+
 # Images
 
 ![Screenshot_71](https://user-images.githubusercontent.com/22201364/120553794-d5b66580-c3f0-11eb-8c64-b64ab41b3ffc.png)
